@@ -1,3 +1,4 @@
-DRIVER_PATH = ''
+DRIVER_PATH = r''
+LINK = ""
 STEAM_LOGIN = ''
 STEAM_PASSWORD = ''
