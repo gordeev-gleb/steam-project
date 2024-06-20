@@ -12,5 +12,6 @@ def test_login_error(browser):
     login_page.enter_account_name(JSON.get_credentials('STEAM_LOGIN'))
     login_page.enter_password(JSON.get_credentials('STEAM_PASSWORD'))
     login_page.click_login_btn()
-    assert WaitUtils.wait_presence_of_element(browser, LoginPage.ERROR_MSG_LOC).text == \
-           'Please check your password and account name and try again.', "Error not found or error text is different"
+    check_error = WaitUtils.wait_presence_of_element(browser, LoginPage.ERROR_MSG_LOC).text
+    assert check_error == 'Please check your password and account name and try again.', \
+        f"Error not found or error text is different. Current Error: {check_error}"
