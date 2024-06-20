@@ -1,8 +1,11 @@
-from containers.common import Header
 from selenium.webdriver.common.by import By
+from utils.utils import BaseActions as BaseA
 
 
-class HeaderFlows:
+class Header:
+    pivot_xpath = '//*[@id="global_header"]'
+    login_button = f'{pivot_xpath}//div[@id="global_action_menu"]/a[2]'
+
     @staticmethod
     def click_to_login_button(browser):
-        return browser.find_element(By.XPATH, Header.login_button(Header())).click()
+        return BaseA.find_element(browser, Header.login_button).click()
