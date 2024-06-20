@@ -1,21 +1,22 @@
-from utils.utils import BaseActions as BaseA
+from selenium.webdriver.common.by import By
+from utils.utils import WaitUtils
 
 
 class LoginPage:
-    pivot_xpath = '//*[@data-featuretarget="login"]'
-    name_field = f'{pivot_xpath}//input[@type="text"]'
-    pass_field = f'{pivot_xpath}//input[@type="password"]'
-    login_btn = f'{pivot_xpath}//button[@type="submit"]'
-    error_msg = f'{pivot_xpath}//form/div[string-length(text()) >15]'
+    PIVOT_FORM_LOC = '//*[@data-featuretarget="login"]'
+    NAME_FIELD_LOC = (By.XPATH, f'{PIVOT_FORM_LOC}//input[@type="text"]')
+    PASS_FIELD_LOC = (By.XPATH, f'{PIVOT_FORM_LOC}//input[@type="password"]')
+    LOGIN_BTN_LOC = (By.XPATH, f'{PIVOT_FORM_LOC}//button[@type="submit"]')
+    ERROR_MSG_LOC = (By.XPATH, f'{PIVOT_FORM_LOC}//form/div[5]')
 
-    @staticmethod
-    def enter_account_name(browser, value):
-        BaseA.find_element(browser, LoginPage.name_field).send_keys(value)
+    def __init__(self, browser):
+        self.browser = browser
 
-    @staticmethod
-    def enter_password(browser, value):
-        BaseA.find_element(browser, LoginPage.pass_field).send_keys(value)
+    def enter_account_name(self, name):
+        WaitUtils.wait_presence_of_element(self.browser, self.NAME_FIELD_LOC).send_keys(name)
 
-    @staticmethod
-    def click_login_btn(browser):
-        BaseA.find_element(browser, LoginPage.login_btn).click()
+    def enter_password(self, password):
+        WaitUtils.wait_presence_of_element(self.browser, self.PASS_FIELD_LOC).send_keys(password)
+
+    def click_login_btn(self):
+        WaitUtils.wait_presence_of_element(self.browser, self.LOGIN_BTN_LOC).click()
