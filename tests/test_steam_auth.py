@@ -1,6 +1,7 @@
 from flows.main_page import MainPage
 from flows.auth_page import LoginPage
-from utils.utils import WaitUtils, JSON
+from utils.wait_utils import WaitUtils
+from utils.json_utils import JSON
 
 
 def test_login_error(browser):

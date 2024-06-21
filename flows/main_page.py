@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from utils.utils import WaitUtils
+from utils.wait_utils import WaitUtils
 
 
 class MainPage:
