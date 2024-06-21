@@ -11,7 +11,7 @@ class WaitUtils:
 
 
 class JSON:
-    with open('credentials.json', 'r') as json_file:
+    with open('test_data.json', 'r') as json_file:
         credentials = json.load(json_file)
 
     @staticmethod
