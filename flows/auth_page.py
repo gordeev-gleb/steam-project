@@ -20,3 +20,8 @@ class LoginPage:
 
     def click_login_btn(self):
         WaitUtils.wait_presence_of_element(self.browser, self.LOGIN_BTN_LOC).click()
+
+    def login(self, name, password):
+        WaitUtils.wait_presence_of_element(self.browser, self.NAME_FIELD_LOC).send_keys(name)
+        WaitUtils.wait_presence_of_element(self.browser, self.PASS_FIELD_LOC).send_keys(password)
+        WaitUtils.wait_presence_of_element(self.browser, self.LOGIN_BTN_LOC).click()
