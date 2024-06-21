@@ -1,12 +1,13 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from config import DRIVER_PATH, LINK
+from webdriver_manager.chrome import ChromeDriverManager
+from config import LINK
 import pytest
 
 
-@pytest.fixture
+@pytest.fixture(scope="module")
 def browser():
-    service = Service(executable_path=DRIVER_PATH)
+    service = Service(ChromeDriverManager().install())
     options = webdriver.ChromeOptions()
     driver = webdriver.Chrome(service=service, options=options)
     driver.get(LINK)
