@@ -4,7 +4,7 @@ from utils.utils import WaitUtils
 
 class MainPage:
     PIVOT_FORM_LOC = '//*[@id="global_header"]'
-    LOGIN_BUTTON_LOC = (By.XPATH, f'{PIVOT_FORM_LOC}//div[@id="global_action_menu"]/a[2]')
+    LOGIN_BUTTON_LOC = (By.XPATH, f'{PIVOT_FORM_LOC}//*[@id="global_action_menu"]/a[2]')
 
     def __init__(self, browser):
         self.browser = browser
