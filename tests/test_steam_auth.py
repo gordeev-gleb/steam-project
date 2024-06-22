@@ -1,9 +1,12 @@
+import pytest
+
 from flows.main_page import MainPage
 from flows.auth_page import LoginPage
 from utils.wait_utils import WaitUtils
 from utils.json_utils import JSON
 
 
+@pytest.mark.parametrize("browser", ["en-US", "ru"], indirect=True)
 def test_login_error(browser):
     # Переходим с основной страницы на страницу авторизации
     main_page = MainPage(browser)
